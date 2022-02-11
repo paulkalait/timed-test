@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Header>
+        <h1 class="high-score">
+           <a href="./highscore.html"> High Score </a>
+        </h1>
+        <h2 class="timer">
+            Time Left
+        </h2>
+    </Header>
+    <!-- intro to start quiz slide -->
+    <section id= "welcome-slide">
+        <h1>Coding Quiz CHallenge</h1>
+        <p> Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds</p>
+        <div class="buttons">
+            <button id="start-btn"> Start Quiz</button>
+        </div>
+
+
+
+    </section>
+    <div class="questions">
+    <div id="question1" data-nummber="1" data-state="hidden"></div>
+    <div id="question2" data-nummber="2" data-state="hidden"></div>
+    <div id="question3" data-nummber="3" data-state="hidden"></div>
+    <div id="question4" data-nummber="4" data-state="hidden"></div>
+    </div>
+    <script src="./assets/javascript/script.js"></script>
+</body>
+</html>
