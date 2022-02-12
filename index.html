@@ -5,33 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css"/>
 </head>
 <body>
-    <Header>
+    <header>
         <h1 class="high-score">
            <a href="./highscore.html"> High Score </a>
         </h1>
         <h2 class="timer">
             Time Left
         </h2>
-    </Header>
+    </header>
     <!-- intro to start quiz slide -->
-    <section id= "welcome-slide">
+    <section class= "welcome-slide">
         <h1>Coding Quiz CHallenge</h1>
-        <p> Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds</p>
-        <div class="buttons">
+        <p> Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by 15 seconds</p>
+        <div class="starter">
             <button id="start-btn"> Start Quiz</button>
         </div>
-
-
-
     </section>
-    <div class="questions">
-    <div id="question1" data-nummber="1" data-state="hidden"></div>
-    <div id="question2" data-nummber="2" data-state="hidden"></div>
-    <div id="question3" data-nummber="3" data-state="hidden"></div>
-    <div id="question4" data-nummber="4" data-state="hidden"></div>
+    <div id="questions" class="answer-buttons">
+        <button class="btn"></button>
+        <button class="btn"></button>
+        <button class="btn"></button>
+        <button class="btn"></button>
     </div>
+
+    <!-- form -->
+    <form id="submit-score">
+        <h2 id=player-score></h2>
+        <label id="initials">Please Enter your initials</label>
+        <input type="text" id="intials-input" placeholder="Enter your initials" maxlength="3">
+        <button id="submit-form-btn">Submit</button>
+    </form>
     <script src="./assets/javascript/script.js"></script>
 </body>
 </html>
