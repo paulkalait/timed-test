@@ -3,7 +3,8 @@ var questions = [{
     
     question: "1. question 1",
     choices: ["option 1", "option 2","option 3","option 4"],
-    answer: 2},
+    answer: 2
+    },
     {
      question: "2. question 2",
      choices: ["option 1", "option 2", "option 3", "option 4"],
@@ -38,9 +39,10 @@ var showAnswer = document.querySelector("#showanswer");
 
 //variables for quiz tracker
 var questionNumber = 0;
+var questionIndex = 0;
 var correctAnswer = 0
 var scoreResult;
-var questionIndex = 0;
+
 
 //when i click start button, timer starts and welcome slide dissapears
 var startQuiz = function(){
@@ -49,8 +51,9 @@ var startQuiz = function(){
     welcomeSlideEl.setAttribute("style", "display: none;");
     formEl.setAttribute("style", "display: none;");
 
+
     countdown();
-}
+} 
 
 //when i click on the start quiz button, it will display my question on the buttons
 //function that will hold generated questions
@@ -68,9 +71,17 @@ var nextQuestion = function(){
 
 //show if question is wrong or incorrect
 function checkAnswer(answer) {
+    if(questions[questionIndex].answer === questions[questionsIndex].choices[answer]){
+        //correct answer
+        showAnswer.textContent = "Correct";
+    }else {
+        //wrong answer, deduct 15 seconds from timer
+         counter -= 15;
+    }
 
 }
 
+//timer properties
 var counter = 75;
 var timer = setInterval(countdown, 1000);
 //timer function
