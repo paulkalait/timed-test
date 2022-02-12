@@ -15,6 +15,7 @@ header{
 }
 header a{
     text-decoration: none;
+    color: purple;
 }
 .welcome-slide{
     text-align: center;
@@ -38,4 +39,21 @@ header a{
     color: white;
     font-size: 1.9vh;
     
+}
+.answer-buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5%;
+}
+.btn{
+    border: solid purple 25px;
+    border-radius: 5px;
+    background-color: purple;
+    color: white;
+    font-size: 1.9vh;
+    padding: 5px;
+    width: 35%;
+    height: 25%;
+    margin: 3px;
 }
