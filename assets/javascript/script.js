@@ -3,20 +3,20 @@ var questions = [{
     
     question: "1. question 1",
     choices: ["option 1", "option 2","option 3","option 4"],
-    answer: 2
+    answer: "option 1"
     },
     {
      question: "2. question 2",
      choices: ["option 1", "option 2", "option 3", "option 4"],
-     answer: 2
+     answer: "option 1"
     }, {
      question: "3. question 3",
      choices: ["correct answer", "option 2", "option 3", "option4"],
-     answer: 1
+     answer: "correct answer"
     }, {
      question: "4. question four",
      choices: ["correct answer", "option 2", "option 3", "option 4"],
-     answer: 0
+     answer: "correct answer"
 }],
 
 
