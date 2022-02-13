@@ -136,9 +136,20 @@ var highScore = function(){
    if(counter > result){
        localStorage.setItem("Highscore", counter)
    }
+
+ highScoreEl.textContent = localStorage.getItem("Highscore");
 }
 
-highScoreEl.textContent = localStorage.getItem("Highscore");
+// var leaderBoard = function(){
+
+
+//     formEl.setAttribute("style", "display: none")
+//     summaryEl.setAttribute("style", "display: none")
+//     questionContainerEl.setAttribute("style", "display: none")
+//     welcomeSlideEl.setAttribute("style", "display: none")
+//     timerEl.setAttribute("style", "display: none")
+
+// }
 
 //leader board section
 
