@@ -9,8 +9,8 @@
 </head>
 <body>
     <header>
-        <h1 class="high-score">
-           <a href="./highscore.html"> High Score </a>
+        <h1>
+           <a href="./highscore.html"> High Score: <span id="high-score"></span></a>
         </h1>
         <h2 class="timer"></h2>
     </header>
@@ -39,7 +39,7 @@
     <!-- results div -->
     <div class=results id="summary" style="display: none;">
         <form id="submit-score">
-            <h2 id=player-score>Your Final Score:</h2>
+            <h2>Your Final Score:<span id="player-score"></span></h2>
             <label id="initials">Please Enter your initials</label>
             <input type="text" id="intials-input" placeholder="Enter your initials" maxlength="3">
             <button id="submit-form-btn">Submit</button>

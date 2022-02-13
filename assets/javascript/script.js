@@ -20,6 +20,7 @@ var questions = [
 }];
 
 //define html references as variables
+var highScoreEl = document.querySelector('#high-score')
 var timerEl = document.querySelector('.timer')
 var questionsEl = document.querySelector('.questions')
 var startQuizBtn = document.querySelector('#start-btn')
@@ -30,6 +31,7 @@ var questionContainerEl = document.querySelector('.question-container')
 var questionNameEl = document.querySelector('#question-name')
 var summaryEl = document.querySelector('#summary')
 var playerScoreEl = document.querySelector('#player-score')
+var submitFormEl = document.querySelector('#submit-form-btn')
 
 //grab buttons from html and make them variables
 var choiceA = document.querySelector("#btn1");
@@ -46,11 +48,12 @@ var correctAnswer = 0;
 var scoreResult;
 
 //timer properties
+var timer
 var counter = 75;
 //when i click start button, timer begins and welcome slide disapears
 var startQuiz = function(){
     questionIndex = 0;
-    counter = 750
+    counter = 75
 
     showAnswer.setAttribute("style", "display: block");
     formEl.setAttribute("style", "display: block");
@@ -58,7 +61,7 @@ var startQuiz = function(){
     welcomeSlideEl.setAttribute("style", "display: none;");
     formEl.setAttribute("style", "display: none;");
 
-    var timer = setInterval(function() {
+     timer = setInterval(function() {
         counter--;
         timerEl.innerHTML = "Time:" + counter;
         if(counter === 0){
@@ -69,6 +72,7 @@ var startQuiz = function(){
             counter--;
         }
     },1000);
+    nextQuestion();
 }
 console.log(questions[questionIndex].question);
 // console.log(questions[questionIndex].choices);
@@ -111,14 +115,24 @@ function checkAnswer(checkTheAnswer) {
 
 var endQuiz = function(){
 
+    clearInterval(timer);
     //show final score 
-    // playerScoreEl = timerEl
+    playerScoreEl.textContent = counter
     formEl.setAttribute("style", "display: block")
     summaryEl.setAttribute("style", "display: block")
     questionContainerEl.setAttribute("style", "display: none")
     welcomeSlideEl.setAttribute("style", "display: none")
     timerEl.setAttribute("style", "display: none")
+    // localStorage.setItem("Highscore", counter)
 }
+var highScore = function(){
+    var result = localStorage.getItem("Highscore")
+   if(counter > result){
+       localStorage.setItem("Highscore", counter)
+   }
+}
+highScoreEl.textContent = localStorage.getItem("Highscore");
+
     
 
 var chooseA = function () {
@@ -142,5 +156,7 @@ choiceA.addEventListener("click", chooseA);
 choiceB.addEventListener("click", chooseB);
 choiceC.addEventListener("click", chooseC);
 choiceD.addEventListener("click", chooseD);
+submitFormEl.addEventListener("submit", highScore);
 
-nextQuestion();
+
+// nextQuestion();

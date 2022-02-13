@@ -41,6 +41,11 @@ header a{
     font-size: 1.9vh;
     
 }
+#question-name{
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+}
 .answer-buttons{
     display: flex;
     flex-wrap: wrap;
@@ -48,6 +53,8 @@ header a{
     padding: 8%;
 }
 #showanswer{
+    width: 100%;
+    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2.00vh;
     color: grey;
@@ -57,7 +64,7 @@ header a{
     border-radius: 5px;
     background-color: purple;
     color: white;
-    font-size: 1.9vh;
+    font-size: 3.00vhl;
     padding: 5px;
     width: 35%;
     height: 25%;
