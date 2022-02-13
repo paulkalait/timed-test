@@ -10,7 +10,7 @@
 <body>
     <header>
         <h1>
-           <a href="./highscore.html"> High Score: <span id="high-score"></span></a>
+           <a id="viewHighScore"> View High Score <span id="high-score"></span></a>
         </h1>
         <h2 class="timer"></h2>
     </header>
@@ -39,11 +39,22 @@
     <!-- results div -->
     <div class=results id="summary" style="display: none;">
         <form id="submit-score">
+            <h1> All done!</h1> 
             <h2>Your Final Score:<span id="player-score"></span></h2>
-            <label id="initials">Please Enter your initials</label>
+            <label id="initialsText">Enter initials:</label>
             <input type="text" id="intials-input" placeholder="Enter your initials" maxlength="3">
-            <button id="submit-form-btn">Submit</button>
+            <button type="submit" id="submit-form-btn">Submit</button>
         </form>
+    </div>
+
+    <!-- leaderboard -->
+    <div id="leaderBoard" style="display: none;">
+        <h2>Highscores</h2>
+        <div id="listOfHighScores"></div>
+       <div>
+           <button type="submit" id="go-back-btn">Go Back</button>
+           <button type="submit" id="clear-highscore-btn">Clear Highscores</button>
+       </div>
     </div>
     <!-- form to submit high score -->
 
