@@ -25,7 +25,7 @@
     </section>
 
     <!-- section that shows quiz button choices -->
-    <section class="question-container">
+    <section class="question-container" style="display: none;">
         <p id="question-name"></p>
     <div id="questions" class="answer-buttons">
         <button id=btn1 class="btn"></button>
@@ -36,13 +36,17 @@
     </div>
     </section>
 
+    <!-- results div -->
+    <div class=results id="summary" style="display: none;">
+        <form id="submit-score">
+            <h2 id=player-score>Your Final Score:</h2>
+            <label id="initials">Please Enter your initials</label>
+            <input type="text" id="intials-input" placeholder="Enter your initials" maxlength="3">
+            <button id="submit-form-btn">Submit</button>
+        </form>
+    </div>
     <!-- form to submit high score -->
-    <form id="submit-score">
-        <h2 id=player-score></h2>
-        <label id="initials">Please Enter your initials</label>
-        <input type="text" id="intials-input" placeholder="Enter your initials" maxlength="3">
-        <button id="submit-form-btn">Submit</button>
-    </form>
+
     <script src="./assets/javascript/script.js"></script>
 </body>
 </html>

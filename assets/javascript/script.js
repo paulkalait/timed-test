@@ -15,7 +15,7 @@ var questions = [
      answer: "correct answer"
     }, {
      question: "4. question four",
-     choices: ["correct answer", "option 2", "option 3", "option 4"],
+     choices: ["option 1", "option 2", "option 3", "option 4"],
      answer: "correct answer"
 }];
 
@@ -28,13 +28,16 @@ var initalsInputEl = document.querySelector('#initials-input')
 var formEl = document.querySelector("#submit-score")
 var questionContainerEl = document.querySelector('.question-container')
 var questionNameEl = document.querySelector('#question-name')
+var summaryEl = document.querySelector('#summary')
+var playerScoreEl = document.querySelector('#player-score')
 
 //grab buttons from html and make them variables
 var choiceA = document.querySelector("#btn1");
-var choiceB = document.querySelector("#btn1");
-var choiceC = document.querySelector("#btn1");
-var choiceD = document.querySelector("#btn1");
+var choiceB = document.querySelector("#btn2");
+var choiceC = document.querySelector("#btn3");
+var choiceD = document.querySelector("#btn4");
 var showAnswer = document.querySelector("#showanswer");
+
 
 //variables for quiz tracker
 var questionNumber = 0;
@@ -47,6 +50,11 @@ var counter = 75;
 //when i click start button, timer begins and welcome slide disapears
 var startQuiz = function(){
     questionIndex = 0;
+    counter = 750
+
+    showAnswer.setAttribute("style", "display: block");
+    formEl.setAttribute("style", "display: block");
+    questionContainerEl.setAttribute("style", "display: block")
     welcomeSlideEl.setAttribute("style", "display: none;");
     formEl.setAttribute("style", "display: none;");
 
@@ -88,16 +96,30 @@ function checkAnswer(checkTheAnswer) {
         //wrong answer, deduct 15 seconds from timer
          counter = counter - 15;
          timerEl.textContent = counter;
-         showAnswer = "Incorrect! The Correct answer is: " + questions[questionIndex].answer;
+         showAnswer.textContent = "Incorrect! The Correct answer is: " + questions[questionIndex].answer;
     }
 
     questionIndex++;
     //repeat with the rest of the questions
     if(questionIndex < questions.length){
         nextQuestion();
-    } 
-    checkAnswer();
+    } else{
+        //once user reaches last question, run the endQuiz function
+        endQuiz()
+    }
 };
+
+var endQuiz = function(){
+
+    //show final score 
+    // playerScoreEl = timerEl
+    formEl.setAttribute("style", "display: block")
+    summaryEl.setAttribute("style", "display: block")
+    questionContainerEl.setAttribute("style", "display: none")
+    welcomeSlideEl.setAttribute("style", "display: none")
+    timerEl.setAttribute("style", "display: none")
+}
+    
 
 var chooseA = function () {
     checkAnswer(0);
@@ -111,6 +133,8 @@ var chooseC = function () {
 var chooseD = function () {
     checkAnswer(3);
 }
+
+
 
 //once the game is down 
 startQuizBtn.addEventListener("click", startQuiz);
