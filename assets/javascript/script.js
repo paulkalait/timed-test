@@ -1,5 +1,6 @@
 
-var questions = [{
+var questions = [
+    {
     question: "1. question 1",
     choices: ["option 1", "option 2","option 3","option 4"],
     answer: "option 1"
@@ -43,29 +44,26 @@ var scoreResult;
 
 //timer properties
 var counter = 75;
-var timer = setInterval(countdown, 1000);
-//timer function
-function countdown(){
-    if(counter === 0){
-        clearTimeout(timer);
-        //call high score function here
-    }else{
-        timerEl.innerHTML = "Time:" + counter;
-        counter--;
-    }
-    console.log(counter);
-};
-
 //when i click start button, timer begins and welcome slide disapears
 var startQuiz = function(){
     questionIndex = 0;
     welcomeSlideEl.setAttribute("style", "display: none;");
     formEl.setAttribute("style", "display: none;");
 
-
-    countdown();
-} 
-
+    var timer = setInterval(function() {
+        counter--;
+        timerEl.innerHTML = "Time:" + counter;
+        if(counter === 0){
+            clearTimeout(timer);
+            //call high score function here
+        }else{
+            timerEl.innerHTML = "Time:" + counter;
+            counter--;
+        }
+    },1000);
+}
+console.log(questions[questionIndex].question);
+console.log(questions[questionIndex].choices);
 //when i click on the start quiz button, it will display my question on the buttons
 //function that will hold generated questions
 var generateQuestion = function(){
@@ -74,7 +72,7 @@ var generateQuestion = function(){
 
 var nextQuestion = function(){
     questionNameEl.textContent = questions[questionIndex].question;
-    questionNameEl.setAttribute("style", "color: white;")
+    questionNameEl.setAttribute("style", "color: black;")
     choiceA.textContent = questions[questionIndex].choices[0]
     choiceB.textContent = questions[questionIndex].choices[1];
     choiceC.textContent = questions[questionIndex].choices[2];
