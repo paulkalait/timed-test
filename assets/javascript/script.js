@@ -3,21 +3,21 @@ var questions = [
     {
     question: "1. question 1",
     choices: ["option 1", "option 2","option 3","option 4"],
-    answer: "option 1"
+    answer: "correct answer"
     },
     {
      question: "2. question 2",
      choices: ["option 1", "option 2", "option 3", "option 4"],
-     answer: "option 1"
+     answer: "correct answer"
     }, {
      question: "3. question 3",
-     choices: ["correct answer", "option 2", "option 3", "option4"],
+     choices: ["correct answer", "option 2", "option 3", "option 4"],
      answer: "correct answer"
     }, {
      question: "4. question four",
      choices: ["correct answer", "option 2", "option 3", "option 4"],
      answer: "correct answer"
-}]
+}];
 
 //define html references as variables
 var timerEl = document.querySelector('.timer')
@@ -63,7 +63,7 @@ var startQuiz = function(){
     },1000);
 }
 console.log(questions[questionIndex].question);
-console.log(questions[questionIndex].choices);
+// console.log(questions[questionIndex].choices);
 //when i click on the start quiz button, it will display my question on the buttons
 //function that will hold generated questions
 var generateQuestion = function(){
@@ -79,22 +79,9 @@ var nextQuestion = function(){
     choiceD.textContent = questions[questionIndex].choices[3];
 }
 
-var chooseA = function () {
-    checkAnswer(0);
-}
-var chooseB = function () {
-    checkAnswer(1);
-}
-var chooseC = function () {
-    checkAnswer(2);
-}
-var chooseD = function () {
-    checkAnswer(3);
-}
-
 //show if question is wrong or incorrect
-function checkAnswer(answer) {
-    if(questions[questionIndex].answer === questions[questionIndex].choices[answer]){
+function checkAnswer(checkTheAnswer) {
+    if(questions[questionIndex].answer === questions[questionIndex].choices[checkTheAnswer]){
         //correct answer
         showAnswer.textContent = "Correct";
     }else {
@@ -111,12 +98,21 @@ function checkAnswer(answer) {
     } 
     checkAnswer();
 };
+
+var chooseA = function () {
+    checkAnswer(0);
+}
+var chooseB = function () {
+    checkAnswer(1);
+}
+var chooseC = function () {
+    checkAnswer(2);
+}
+var chooseD = function () {
+    checkAnswer(3);
+}
+
 //once the game is down 
-
-
-
-
-
 startQuizBtn.addEventListener("click", startQuiz);
 choiceA.addEventListener("click", chooseA);
 choiceB.addEventListener("click", chooseB);
