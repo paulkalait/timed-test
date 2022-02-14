@@ -52,7 +52,7 @@ var showAnswer = document.querySelector("#showanswer");
 //variables for quiz tracker
 var questionNumber = 0;
 var questionIndex = 0;
-var correctAnswer = 0;
+
 
 
 //timer properties
@@ -169,7 +169,7 @@ var leaderBoard = function(event){
     var i = 0
     for(; i < savedScored.length; i ++){
         var eachNewHighScore = document.createElement("p");
-        eachNewHighScore.setAttribute("style","padding: 3px; margin: 2%;" )
+        eachNewHighScore.setAttribute("style","padding: 3px; margin: 2%; font-size: 2.00vh" )
         eachNewHighScore.innerHTML = savedScored[i].initials + ": " + savedScored[i].result;
         listOfHighScore.appendChild(eachNewHighScore);
     }
@@ -188,7 +188,7 @@ var leaderBoard = function(event){
 var clearScore = function(){
     localStorage.removeItem("Highscore")
     listOfHighScore.textContent = "High Scores Cleared!"
-    
+    listOfHighScore.setAttribute("style","padding: 3px; margin: 2%; font-size: 2.00vh;" )
 }
 
 var showHighScores = function(){
