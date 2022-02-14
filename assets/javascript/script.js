@@ -117,6 +117,7 @@ function checkAnswer(checkTheAnswer) {
     if(questionIndex < questions.length){
         nextQuestion();
     } else{
+        counter = 0
         //once user reaches last question, run the endQuiz function
         endQuiz()
     }
@@ -127,6 +128,7 @@ var endQuiz = function(){
     clearInterval(timer);
     //show final score 
     playerScoreEl.textContent = counter
+    ViewHighScoreEl.setAttribute("style", "display: none")
     highScoreEl.setAttribute("style", "display: none")
     formEl.setAttribute("style", "display: block")
     summaryEl.setAttribute("style", "display: block")
@@ -156,6 +158,8 @@ var highScore = function(){
     // ]
 
 var savedScored = []
+
+//get the arrays to be for looped and then displayed 
 var leaderBoard = function(event){
     event.preventDefault()
 
@@ -186,6 +190,7 @@ var leaderBoard = function(event){
 
     localStorage.setItem("Highscore", JSON.stringify(savedScored))
     leaderBoardEl.setAttribute("style", "display: block")
+    ViewHighScoreEl.setAttribute("style", "display: none")
     formEl.setAttribute("style", "display: none")
     summaryEl.setAttribute("style", "display: none")
     questionContainerEl.setAttribute("style", "display: none")
@@ -199,7 +204,16 @@ var clearScore = function(){
     
 }
 
-//leader board section
+var showHighScores = function(){
+    leaderBoardEl.setAttribute("style", "display: block")
+    formEl.setAttribute("style", "display: none")
+    summaryEl.setAttribute("style", "display: none")
+    questionContainerEl.setAttribute("style", "display: none")
+    welcomeSlideEl.setAttribute("style", "display: none")
+    timerEl.setAttribute("style", "display: none")
+}
+
+
 
 var chooseA = function () {
     checkAnswer(0);
@@ -218,8 +232,8 @@ var chooseD = function () {
 
 //once the game is down 
 
-//view high score through text added 10:52pm 02/12
-ViewHighScoreEl.addEventListener("click", leaderBoard)
+//view high score through by being brought to leaderboard screen
+ViewHighScoreEl.addEventListener("click", showHighScores)
 
 startQuizBtn.addEventListener("click", startQuiz);
 choiceA.addEventListener("click", chooseA);
