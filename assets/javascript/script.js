@@ -76,6 +76,7 @@ var startQuiz = function(){
         if(counter === 0){
             clearTimeout(timer);
             //call high score function here
+
         }else{
             timerEl.innerHTML = "Time:" + counter;
             counter--;
@@ -128,7 +129,6 @@ var endQuiz = function(){
     clearInterval(timer);
     //show final score 
     playerScoreEl.textContent = counter
-    ViewHighScoreEl.setAttribute("style", "display: none")
     highScoreEl.setAttribute("style", "display: none")
     formEl.setAttribute("style", "display: block")
     summaryEl.setAttribute("style", "display: block")
@@ -241,6 +241,7 @@ choiceB.addEventListener("click", chooseB);
 choiceC.addEventListener("click", chooseC);
 choiceD.addEventListener("click", chooseD);
 submitFormEl.addEventListener("click", leaderBoard);
+//replacing starQuiz to tryAagain
 TryAgainBtnEl.addEventListener("click", startQuiz)
 clearHighScoreEl.addEventListener("click", clearScore)
 
