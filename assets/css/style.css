@@ -45,6 +45,12 @@ header a:hover{
     color: white;
     font-size: 3.00vh;
 }
+#try-again-btn:hover{
+    opacity: 1.00;
+}
+#clear-highscore-btn:hover{
+    opacity: 1.00;
+}
 #start-btn:hover{
     opacity: 1.00;
 }
@@ -97,6 +103,8 @@ header a:hover{
     border-radius: 5px;
     background-color: white;
 }
+
+
 .btn{
     border: solid purple 20px;
     border-radius: 5px;

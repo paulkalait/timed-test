@@ -36,7 +36,7 @@ var leaderBoardEl = document.querySelector('#leaderBoard')
 var TryAgainBtnEl = document.querySelector('#try-again-btn')
 var listOfHighScore = document.querySelector('#listOfHighScores')
 // var listOfHighScore = document.querySelector('#listOfHighScores')
-var clearHighScoreEl = document.querySelector('#cleadr-highscore-btn')
+var clearHighScoreEl = document.querySelector('#clear-highscore-btn')
 
 
 console.log(submitFormEl);
@@ -178,6 +178,7 @@ var leaderBoard = function(event){
     var i = 0
     for(; i < savedScored.length; i ++){
         var eachNewHighScore = document.createElement("p");
+        eachNewHighScore.setAttribute("style","padding: 3px; margin: 2%;" )
         eachNewHighScore.innerHTML = savedScored[i].initials + ": " + savedScored[i].result;
         listOfHighScore.appendChild(eachNewHighScore);
     }
@@ -191,6 +192,11 @@ var leaderBoard = function(event){
     welcomeSlideEl.setAttribute("style", "display: none")
     timerEl.setAttribute("style", "display: none")
 
+}
+var clearScore = function(){
+    localStorage.removeItem("Highscore")
+    listOfHighScore.textContent = "High Scores Cleared!"
+    
 }
 
 //leader board section
@@ -212,6 +218,9 @@ var chooseD = function () {
 
 //once the game is down 
 
+//view high score through text added 10:52pm 02/12
+ViewHighScoreEl.addEventListener("click", leaderBoard)
+
 startQuizBtn.addEventListener("click", startQuiz);
 choiceA.addEventListener("click", chooseA);
 choiceB.addEventListener("click", chooseB);
@@ -219,6 +228,9 @@ choiceC.addEventListener("click", chooseC);
 choiceD.addEventListener("click", chooseD);
 submitFormEl.addEventListener("click", leaderBoard);
 TryAgainBtnEl.addEventListener("click", startQuiz)
+clearHighScoreEl.addEventListener("click", clearScore)
+
+
 
 
 // nextQuestion();
