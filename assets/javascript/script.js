@@ -164,6 +164,7 @@ var leaderBoard = function(event){
 
     if( savedScored === null){
         savedScored =[];
+        
     }
     var playerdata = {
         initials: initalsInputEl.value,
@@ -171,11 +172,14 @@ var leaderBoard = function(event){
     }
     savedScored.push(playerdata);
 
-    // for(; i < savedScored.length; i ++){
-    //     var eachNewHighScore = document.createElement("p");
-    //     eachNewHighScore.innerHTML = savedScored[i].initials + ": " + savedScored[i].result;
-    //     listOfHighScore.appendChild(eachNewHighScore);
-    // }
+    //for loop to append strings onto inner html 
+    for(; i < playerdata.length; i ++){
+        var eachNewHighScore = document.createElement("p");
+        eachNewHighScore.innerHTML = playerdata[i].initials + ": " + playerdata[i].result;
+        listOfHighScore.appendChild(eachNewHighScore);
+    }
+
+
     localStorage.setItem("Highscore", JSON.stringify(savedScored))
     leaderBoardEl.setAttribute("style", "display: block")
     formEl.setAttribute("style", "display: none")
