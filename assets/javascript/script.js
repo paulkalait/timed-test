@@ -34,6 +34,7 @@ var playerScoreEl = document.querySelector('#player-score')
 var submitFormEl = document.querySelector('#submit-form-btn')
 var leaderBoardEl = document.querySelector('#leaderBoard')
 var TryAgainBtnEl = document.querySelector('#try-again-btn')
+var listOfHighScore = document.querySelector('#listOfHighScores')
 // var listOfHighScore = document.querySelector('#listOfHighScores')
 var clearHighScoreEl = document.querySelector('#cleadr-highscore-btn')
 
@@ -175,9 +176,9 @@ var leaderBoard = function(event){
 
     //for loop to append strings onto inner html 
     var i = 0
-    for(; i < playerdata.length; i ++){
+    for(; i < savedScored.length; i ++){
         var eachNewHighScore = document.createElement("p");
-        eachNewHighScore.innerHTML = playerdata[i].initials + ": " + playerdata[i].result;
+        eachNewHighScore.innerHTML = savedScored[i].initials + ": " + savedScored[i].result;
         listOfHighScore.appendChild(eachNewHighScore);
     }
 
