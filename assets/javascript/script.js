@@ -1,22 +1,22 @@
 
 var questions = [
     {
-    question: "1. question 1",
-    choices: ["option 1", "option 2","option 3","option 4"],
-    answer: "correct answer"
+    question: "What does CSS stand for?",
+    choices: ["Computer Style Sheets", "Cascading Style Sheets","Colorful Style Sheets","Creative Style Sheets"],
+    answer: "Cascading Style Sheets"
     },
     {
-     question: "2. question 2",
-     choices: ["option 1", "option 2", "option 3", "option 4"],
-     answer: "correct answer"
+     question: "Which HTML tag is used to define an internal style sheet?",
+     choices: ["<style>", "<css>", "<script>", "<yur>"],
+     answer: "<style>"
     }, {
-     question: "3. question 3",
-     choices: ["correct answer", "option 2", "option 3", "option 4"],
-     answer: "correct answer"
+     question: "Which property is used to change the background color?",
+     choices: ["background-color", "bgcolor", "color", "yur"],
+     answer: "background-color"
     }, {
-     question: "4. question four",
-     choices: ["option 1", "option 2", "option 3", "option 4"],
-     answer: "correct answer"
+     question: "Which CSS property controls the text size?",
+     choices: ["font-size", "font-style", "text-size", "text-style"],
+     answer: "font-size"
 }];
 
 //define html references as variables
@@ -26,7 +26,6 @@ var timerEl = document.querySelector('.timer')
 var questionsEl = document.querySelector('.questions')
 var startQuizBtn = document.querySelector('#start-btn')
 var welcomeSlideEl = document.querySelector('.welcome-slide')
-var initalsInputEl = document.querySelector('#initials-input')
 var formEl = document.querySelector("#submit-score")
 var questionContainerEl = document.querySelector('.question-container')
 var questionNameEl = document.querySelector('#question-name')
@@ -35,9 +34,11 @@ var playerScoreEl = document.querySelector('#player-score')
 var submitFormEl = document.querySelector('#submit-form-btn')
 var leaderBoardEl = document.querySelector('#leaderBoard')
 var TryAgainBtnEl = document.querySelector('#try-again-btn')
+// var listOfHighScore = document.querySelector('#listOfHighScores')
 var clearHighScoreEl = document.querySelector('#cleadr-highscore-btn')
 
 
+console.log(submitFormEl);
 
 //grab buttons from html and make them variables
 var choiceA = document.querySelector("#btn1");
@@ -121,7 +122,7 @@ function checkAnswer(checkTheAnswer) {
 };
 
 var endQuiz = function(){
-    
+
     clearInterval(timer);
     //show final score 
     playerScoreEl.textContent = counter
@@ -141,9 +142,41 @@ var highScore = function(){
 
  highScoreEl.textContent = localStorage.getItem("Highscore");
 }
+    
+    // [{
+    //     initials: aa,
+    //     result: 10
+    // },
+    // {
+    //     initials: bb,
+    //     result: 20
 
-var leaderBoard = function(){
+    // }
+    // ]
+var savedScored = []
+var leaderBoard = function(event){
+    event.preventDefault()
 
+   var initalsInputEl = document.querySelector('#initials')
+   console.log(initalsInputEl.value)
+   
+   var savedScored = JSON.parse(localStorage.getItem("Highscore"))
+
+    if( savedScored === null){
+        savedScored =[];
+    }
+    var playerdata = {
+        initials: initalsInputEl.value,
+        result: counter
+    }
+    savedScored.push(playerdata);
+
+    // for(; i < savedScored.length; i ++){
+    //     var eachNewHighScore = document.createElement("p");
+    //     eachNewHighScore.innerHTML = savedScored[i].initials + ": " + savedScored[i].result;
+    //     listOfHighScore.appendChild(eachNewHighScore);
+    // }
+    localStorage.setItem("Highscore", JSON.stringify(savedScored))
     leaderBoardEl.setAttribute("style", "display: block")
     formEl.setAttribute("style", "display: none")
     summaryEl.setAttribute("style", "display: none")

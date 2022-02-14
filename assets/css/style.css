@@ -50,8 +50,8 @@ header a:hover{
 }
 #question-name{
     width: 100%;
+    margin-top: 5%;
     text-align: center;
-    padding-top: 20px;
 }
 .answer-buttons{
     display: flex;
@@ -72,11 +72,11 @@ header a:hover{
 
 #submit-form-btn{
     opacity: .7;
-    border: solid purple 4px;
+    border: solid purple 8px;
     border-radius: 5px;
     background-color: purple;
     color: white;
-    font-size: 1.05vh;
+    font-size: 1.8vh;
     margin-bottom: 2%;
 }
 .results{
@@ -89,19 +89,20 @@ header a:hover{
 #submit-form-btn:hover{
     opacity: 1.0;
 }
-#intials-input{
+#intials{
     width:60%;
-    padding: 5px;
+    margin: 5px 0 5px 0;
+    padding: 7px;
     border: lightgrey 1px solid;
     border-radius: 5px;
     background-color: white;
 }
 .btn{
-    border: solid purple 25px;
+    border: solid purple 20px;
     border-radius: 5px;
     background-color: purple;
     color: white;
-    font-size: 3.00vhl;
+    font-size: 4.00vhl;
     padding: 5px;
     width: 35%;
     height: 25%;
