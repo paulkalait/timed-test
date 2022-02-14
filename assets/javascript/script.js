@@ -153,6 +153,7 @@ var highScore = function(){
 
     // }
     // ]
+
 var savedScored = []
 var leaderBoard = function(event){
     event.preventDefault()
@@ -173,6 +174,7 @@ var leaderBoard = function(event){
     savedScored.push(playerdata);
 
     //for loop to append strings onto inner html 
+    var i = 0
     for(; i < playerdata.length; i ++){
         var eachNewHighScore = document.createElement("p");
         eachNewHighScore.innerHTML = playerdata[i].initials + ": " + playerdata[i].result;

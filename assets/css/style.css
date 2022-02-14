@@ -37,7 +37,7 @@ header a:hover{
     align-items: center;
     padding-top: 3%;
 }
-#start-btn{
+#start-btn, #try-again-btn, #clear-highscore-btn{
     opacity: .7;
     border: solid purple 8px;
     border-radius: 5px;
