@@ -20,6 +20,7 @@ var questions = [
 }];
 
 //define html references as variables
+var ViewHighScoreEl = document.querySelector('#viewHighScore')
 var highScoreEl = document.querySelector('#high-score')
 var timerEl = document.querySelector('.timer')
 var questionsEl = document.querySelector('.questions')
@@ -33,8 +34,8 @@ var summaryEl = document.querySelector('#summary')
 var playerScoreEl = document.querySelector('#player-score')
 var submitFormEl = document.querySelector('#submit-form-btn')
 var leaderBoardEl = document.querySelector('#leaderBoard')
-var goBackBtnEl = document.querySelector('go-back-btn')
-var clearHighScoreEl = document.querySelector('claer-highscore-btn')
+var TryAgainBtnEl = document.querySelector('#try-again-btn')
+var clearHighScoreEl = document.querySelector('#cleadr-highscore-btn')
 
 
 
@@ -60,6 +61,7 @@ var startQuiz = function(){
     questionIndex = 0;
     counter = 75
 
+    leaderBoardEl.setAttribute("style", "display: none")
     showAnswer.setAttribute("style", "display: block");
     formEl.setAttribute("style", "display: block");
     questionContainerEl.setAttribute("style", "display: block")
@@ -119,11 +121,11 @@ function checkAnswer(checkTheAnswer) {
 };
 
 var endQuiz = function(){
-
-
+    
     clearInterval(timer);
     //show final score 
     playerScoreEl.textContent = counter
+    highScoreEl.setAttribute("style", "display: none")
     formEl.setAttribute("style", "display: block")
     summaryEl.setAttribute("style", "display: block")
     questionContainerEl.setAttribute("style", "display: none")
@@ -132,7 +134,7 @@ var endQuiz = function(){
     // localStorage.setItem("Highscore", counter)
 }
 var highScore = function(){
-    var result = localStorage.getItem("Highscore")
+    var result = parseInt(localStorage.getItem("Highscore"))
    if(counter > result){
        localStorage.setItem("Highscore", counter)
    }
@@ -140,16 +142,16 @@ var highScore = function(){
  highScoreEl.textContent = localStorage.getItem("Highscore");
 }
 
-// var leaderBoard = function(){
+var leaderBoard = function(){
 
+    leaderBoardEl.setAttribute("style", "display: block")
+    formEl.setAttribute("style", "display: none")
+    summaryEl.setAttribute("style", "display: none")
+    questionContainerEl.setAttribute("style", "display: none")
+    welcomeSlideEl.setAttribute("style", "display: none")
+    timerEl.setAttribute("style", "display: none")
 
-//     formEl.setAttribute("style", "display: none")
-//     summaryEl.setAttribute("style", "display: none")
-//     questionContainerEl.setAttribute("style", "display: none")
-//     welcomeSlideEl.setAttribute("style", "display: none")
-//     timerEl.setAttribute("style", "display: none")
-
-// }
+}
 
 //leader board section
 
@@ -169,12 +171,14 @@ var chooseD = function () {
 
 
 //once the game is down 
+
 startQuizBtn.addEventListener("click", startQuiz);
 choiceA.addEventListener("click", chooseA);
 choiceB.addEventListener("click", chooseB);
 choiceC.addEventListener("click", chooseC);
 choiceD.addEventListener("click", chooseD);
-submitFormEl.addEventListener("submit", highScore);
+submitFormEl.addEventListener("click", leaderBoard);
+TryAgainBtnEl.addEventListener("click", startQuiz)
 
 
 // nextQuestion();

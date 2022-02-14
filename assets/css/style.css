@@ -79,8 +79,22 @@ header a:hover{
     font-size: 1.05vh;
     margin-bottom: 2%;
 }
+.results{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+}
+
 #submit-form-btn:hover{
     opacity: 1.0;
+}
+#intials-input{
+    width:60%;
+    padding: 5px;
+    border: lightgrey 1px solid;
+    border-radius: 5px;
+    background-color: white;
 }
 .btn{
     border: solid purple 25px;
