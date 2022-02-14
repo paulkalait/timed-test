@@ -118,7 +118,6 @@ function checkAnswer(checkTheAnswer) {
     if(questionIndex < questions.length){
         nextQuestion();
     } else{
-        counter = 0
         //once user reaches last question, run the endQuiz function
         endQuiz()
     }
@@ -145,18 +144,6 @@ var highScore = function(){
 
  highScoreEl.textContent = localStorage.getItem("Highscore");
 }
-    
-    // [{
-    //     initials: aa,
-    //     result: 10
-    // },
-    // {
-    //     initials: bb,
-    //     result: 20
-
-    // }
-    // ]
-
 var savedScored = []
 
 //get the arrays to be for looped and then displayed 
@@ -242,7 +229,12 @@ choiceC.addEventListener("click", chooseC);
 choiceD.addEventListener("click", chooseD);
 submitFormEl.addEventListener("click", leaderBoard);
 //replacing starQuiz to tryAagain
-TryAgainBtnEl.addEventListener("click", startQuiz)
+
+// run the game again back to start menu
+// TryAgainBtnEl.addEventListener("click", startQuiz)
+TryAgainBtnEl.addEventListener("click", function (event) {
+    location.reload();
+})
 clearHighScoreEl.addEventListener("click", clearScore)
 
 
