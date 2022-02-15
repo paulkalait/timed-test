@@ -114,7 +114,7 @@ function checkAnswer(checkTheAnswer) {
     }
 
     questionIndex++;
-    //repeat with the rest of the questions
+    //carry on with the rest of the questions
     if(questionIndex < questions.length){
         nextQuestion();
     } else{
@@ -126,7 +126,7 @@ function checkAnswer(checkTheAnswer) {
 var endQuiz = function(){
 
     clearInterval(timer);
-    //show final score 
+    
     playerScoreEl.textContent = counter
     highScoreEl.setAttribute("style", "display: none")
     formEl.setAttribute("style", "display: block")
@@ -185,12 +185,13 @@ var leaderBoard = function(event){
     timerEl.setAttribute("style", "display: none")
 
 }
+//function to clear the score
 var clearScore = function(){
     localStorage.removeItem("Highscore")
     listOfHighScore.textContent = "High Scores Cleared!"
     listOfHighScore.setAttribute("style","padding: 3px; margin: 2%; font-size: 2.00vh;" )
 }
-
+//function to display leaderboard
 var showHighScores = function(){
     leaderBoardEl.setAttribute("style", "display: block")
     formEl.setAttribute("style", "display: none")
@@ -199,8 +200,6 @@ var showHighScores = function(){
     welcomeSlideEl.setAttribute("style", "display: none")
     timerEl.setAttribute("style", "display: none")
 }
-
-
 
 var chooseA = function () {
     checkAnswer(0);
@@ -214,10 +213,6 @@ var chooseC = function () {
 var chooseD = function () {
     checkAnswer(3);
 }
-
-
-
-//once the game is down 
 
 //view high score through by being brought to leaderboard screen
 ViewHighScoreEl.addEventListener("click", showHighScores)
@@ -237,7 +232,3 @@ TryAgainBtnEl.addEventListener("click", function (event) {
 })
 clearHighScoreEl.addEventListener("click", clearScore)
 
-
-
-
-// nextQuestion();
