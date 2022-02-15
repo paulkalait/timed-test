@@ -79,7 +79,7 @@ var startQuiz = function(){
 
         }else{
             timerEl.innerHTML = "Time:" + counter;
-            counter--;
+            // counter--;
         }
     },1000);
     nextQuestion();
